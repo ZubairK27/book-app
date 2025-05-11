@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: myapp
+  namespace: bookapp
 spec:
   replicas: 1
   selector:
@@ -15,18 +15,18 @@ spec:
     spec:
       containers:
       - name: backend
-        image: <your-dockerhub-username>/book-backend:latest
+        image: zubairk27/book-app-backend:latest
         ports:
         - containerPort: 5000
         env:
         - name: MONGO_URI
-          value: mongodb://host.minikube.internal:27017/bookdb
+          value: mongodb://host.minikube.internal:27017/bookstore
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: backend-service
-  namespace: myapp
+  namespace: bookapp
 spec:
   type: NodePort
   selector:
