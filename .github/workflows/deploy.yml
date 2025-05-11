@@ -25,7 +25,7 @@ jobs:
       - name: Build and Push Frontend Image
         run: |
           docker build -t zubairk27/book-app-frontend:latest ./frontend
-          docker push your-dockerhub-username/book-app-frontend:latest
+          docker push zubairk27/book-app-frontend:latest
 
       - name: Deploy Backend
         run: kubectl apply -f app/backend-deployment.yaml -n bookapp
