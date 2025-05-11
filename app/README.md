@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# 📚 BookApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack MERN (MongoDB, Express, React, Node.js) application for browsing books, viewing detailed information, and managing favorites. This project includes both frontend and backend code, supports running locally with Node.js, and is deployable using Docker and Kubernetes (optional).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- ✅ Browse a list of books with title, author, genre, year, and cover image  
+- ✅ View detailed book information and reviews  
+- ✅ Add or remove books from favorites (stored in browser's local storage)  
+- ✅ RESTful API built with Express and MongoDB  
+- ✅ Clean React frontend with routing  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+- **Frontend:** React.js, React Router  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB (local or via MongoDB Atlas)  
+- **Optional:** Docker, Kubernetes, GitHub Actions for CI/CD  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📦 Getting Started (Local Setup with Node.js)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clone the repository
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
+git clone https://github.com/<your-username>/bookapp.git
+cd bookapp
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Install dependencies
+Backend:
 
-### `npm run eject`
+cd backend
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Frontend:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+cd ../frontend
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. Configure environment variables
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a .env file in the backend/ directory with the following content:
 
-## Learn More
+MONGO_DB_URI=mongodb://localhost:27017/bookapp
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Ensure MongoDB is running on your system.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Run the project
+Start MongoDB:
 
-### Code Splitting
+Make sure the mongod service is running locally.
+Start the backend server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+cd backend
+npm start
 
-### Analyzing the Bundle Size
+Runs at: http://localhost:5000
+Start the frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+cd ../frontend
+npm start
 
-### Making a Progressive Web App
+Runs at: http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🧪 API Endpoints
+Method	Endpoint	Description
+GET	/api/books	Fetch all books
+GET	/api/books/:id	Fetch details of a book
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Running via Docker
+simply run docker-compose up from the app directory
